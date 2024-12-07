@@ -6,7 +6,11 @@ import { Input } from "../components/ui/input"
 import { Label } from "../components/ui/label"
 import { Textarea } from "../components/ui/textarea"
 
-export default function UploadForm() {
+interface UploadFormProps {
+  onUploadSuccess?: () => void;
+}
+
+export default function UploadForm({ onUploadSuccess }: UploadFormProps) {
   const [file, setFile] = useState<File | null>(null)
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -35,6 +39,9 @@ export default function UploadForm() {
 
       const result = await response.json()
       setMessage(result.message)
+      if (onUploadSuccess) {
+        onUploadSuccess();
+      }
     } catch (error) {
       setMessage('Error uploading file')
     } finally {

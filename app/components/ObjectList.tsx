@@ -13,6 +13,12 @@ interface ObjectItem {
   uploadDate: string
 }
 
+export const refreshObjects = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new Event('refreshObjects'))
+  }
+}
+
 export default function ObjectList() {
   const [objects, setObjects] = useState<ObjectItem[]>([])
   const [loading, setLoading] = useState(true)
@@ -34,6 +40,8 @@ export default function ObjectList() {
 
   useEffect(() => {
     fetchObjects()
+    window.addEventListener('refreshObjects', fetchObjects)
+    return () => window.removeEventListener('refreshObjects', fetchObjects)
   }, [])
 
   const handleDelete = async (id: string) => {
