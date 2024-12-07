@@ -1,0 +1,36 @@
+{
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "name": "azure-upload-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@azure/cosmos": "^3.17.3",
+    "@azure/storage-blob": "^12.13.0",
+    "@radix-ui/react-label": "^2.1.0",
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "^8.37.0",
+    "eslint-config-next": "^13.3.0",
+    "next": "^13.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.5.5",
+    "typescript": "^5.0.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
+  }
+}
